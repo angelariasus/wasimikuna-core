@@ -29,6 +29,12 @@ public interface DetalleRecepcionRepository extends JpaRepository<DetalleRecepci
     @Query("SELECT d FROM DetalleRecepcion d WHERE d.motivoRechazo IS NOT NULL AND d.motivoRechazo != ''")
     List<DetalleRecepcion> findWithRejectionReasons();
     
+    @Query("SELECT d FROM DetalleRecepcion d WHERE d.cantidadRechazada > 0")
+    List<DetalleRecepcion> findRejectedItems();
+    
+    @Query("SELECT d FROM DetalleRecepcion d WHERE d.fechaVencimiento <= :fechaLimite")
+    List<DetalleRecepcion> findExpiringSoon(@Param("fechaLimite") LocalDate fechaLimite);
+    
     @Query("SELECT d FROM DetalleRecepcion d WHERE d.producto.productoId = :productoId AND d.loteFabricacion = :lote")
     List<DetalleRecepcion> findByProductoAndLote(@Param("productoId") Long productoId, @Param("lote") String lote);
     

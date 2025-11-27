@@ -18,8 +18,16 @@ public interface ProgramacionMenuRepository extends JpaRepository<ProgramacionMe
     
     List<ProgramacionMenu> findByEstadoPreparacion(EstadoPreparacion estadoPreparacion);
     
+    List<ProgramacionMenu> findByFechaConsumo(LocalDate fechaConsumo);
+    
     @Query("SELECT p FROM ProgramacionMenu p WHERE p.fechaConsumo BETWEEN :fechaInicio AND :fechaFin")
     List<ProgramacionMenu> findByFechaConsumoBetween(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin);
+    
+    List<ProgramacionMenu> findByInstitucionInstitucionIdAndFechaConsumo(Long institucionId, LocalDate fechaConsumo);
+    
+    List<ProgramacionMenu> findByInstitucionInstitucionIdAndFechaConsumoBetween(Long institucionId, LocalDate fechaInicio, LocalDate fechaFin);
+    
+    boolean existsByInstitucionInstitucionIdAndFechaConsumoAndPlatoPlatoId(Long institucionId, LocalDate fechaConsumo, Long platoId);
     
     @Query("SELECT p FROM ProgramacionMenu p WHERE p.institucion.institucionId = :institucionId AND p.fechaConsumo = :fecha")
     List<ProgramacionMenu> findByInstitucionAndFecha(@Param("institucionId") Long institucionId, @Param("fecha") LocalDate fecha);
