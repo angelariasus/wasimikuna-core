@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/programaciones-menu")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Programación de Menús", description = "API para gestión de programación de menús por institución")
 public class ProgramacionMenuController {
 

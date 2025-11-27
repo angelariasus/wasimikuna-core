@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/afiliados")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Afiliados", description = "API para gestión de afiliados proveedores")
 public class AfiliadoController {
 

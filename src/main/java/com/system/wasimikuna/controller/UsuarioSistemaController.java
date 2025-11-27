@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Usuarios del Sistema", description = "API para gestión de usuarios del sistema")
 public class UsuarioSistemaController {
 

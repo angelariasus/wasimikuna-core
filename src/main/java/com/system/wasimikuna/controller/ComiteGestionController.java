@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/comites")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Comités de Gestión", description = "API para gestión de comités de gestión alimentaria")
 public class ComiteGestionController {
 

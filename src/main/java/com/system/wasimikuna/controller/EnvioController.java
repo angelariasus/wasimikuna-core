@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/envios")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Envíos", description = "API para gestión de envíos de productos")
 public class EnvioController {
 

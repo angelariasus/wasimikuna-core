@@ -13,7 +13,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/auditoria")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Auditoría del Sistema", description = "API para gestión de auditoría y trazabilidad del sistema")
 public class AuditoriaSistemaController {
 

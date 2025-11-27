@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/roles")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Roles", description = "API para gestión de roles del sistema")
 public class RolController {
 

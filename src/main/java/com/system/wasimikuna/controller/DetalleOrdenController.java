@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/detalles-orden")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @Tag(name = "Detalles de Orden", description = "API para gestión de detalles de órdenes de compra")
 public class DetalleOrdenController {
 
