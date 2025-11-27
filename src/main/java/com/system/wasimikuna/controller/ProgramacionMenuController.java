@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.ProgramacionMenuDTO;
 import com.system.wasimikuna.service.ProgramacionMenuService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/api/programaciones-menu")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Programación de Menús", description = "API para gestión de programación de menús por institución")
 public class ProgramacionMenuController {
 
     private final ProgramacionMenuService programacionService;

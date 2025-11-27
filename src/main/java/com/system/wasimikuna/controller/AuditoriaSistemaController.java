@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.AuditoriaSistemaDTO;
 import com.system.wasimikuna.service.AuditoriaSistemaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.Map;
 @RequestMapping("/api/auditoria")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Auditoría del Sistema", description = "API para gestión de auditoría y trazabilidad del sistema")
 public class AuditoriaSistemaController {
 
     private final AuditoriaSistemaService auditoriaService;

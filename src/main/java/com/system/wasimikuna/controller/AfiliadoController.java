@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.AfiliadoDTO;
 import com.system.wasimikuna.service.AfiliadoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/afiliados")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Afiliados", description = "API para gestión de afiliados proveedores")
 public class AfiliadoController {
 
     private final AfiliadoService afiliadoService;

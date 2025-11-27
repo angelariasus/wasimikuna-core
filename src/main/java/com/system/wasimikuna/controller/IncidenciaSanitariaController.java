@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.IncidenciaSanitariaDTO;
 import com.system.wasimikuna.service.IncidenciaSanitariaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/incidencias")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Incidencias Sanitarias", description = "API para gestión de incidencias sanitarias en el sistema alimentario")
 public class IncidenciaSanitariaController {
 
     private final IncidenciaSanitariaService incidenciaService;

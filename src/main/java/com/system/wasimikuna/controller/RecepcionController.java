@@ -2,6 +2,8 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.RecepcionDTO;
 import com.system.wasimikuna.service.RecepcionService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +15,19 @@ import java.util.List;
 @RequestMapping("/api/recepciones")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Recepciones", description = "API para gestión de recepciones de productos")
 public class RecepcionController {
 
     private final RecepcionService recepcionService;
 
+    @Operation(summary = "Obtener todas las recepciones", description = "Recupera una lista de todas las recepciones de productos")
     @GetMapping
     public ResponseEntity<List<RecepcionDTO>> getAllRecepciones() {
         List<RecepcionDTO> recepciones = recepcionService.findAll();
         return ResponseEntity.ok(recepciones);
     }
 
+    @Operation(summary = "Obtener recepción por ID", description = "Recupera una recepción específica por su identificador")
     @GetMapping("/{id}")
     public ResponseEntity<RecepcionDTO> getRecepcionById(@PathVariable Long id) {
         RecepcionDTO recepcion = recepcionService.findById(id);

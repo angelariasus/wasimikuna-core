@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.ComiteGestionDTO;
 import com.system.wasimikuna.service.ComiteGestionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/comites")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Comités de Gestión", description = "API para gestión de comités de gestión alimentaria")
 public class ComiteGestionController {
 
     private final ComiteGestionService comiteService;

@@ -2,6 +2,7 @@ package com.system.wasimikuna.controller;
 
 import com.system.wasimikuna.dto.InstitucionEducativaDTO;
 import com.system.wasimikuna.service.InstitucionEducativaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/instituciones")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Instituciones Educativas", description = "API para gestión de instituciones educativas beneficiarias")
 public class InstitucionEducativaController {
 
     private final InstitucionEducativaService institucionService;
