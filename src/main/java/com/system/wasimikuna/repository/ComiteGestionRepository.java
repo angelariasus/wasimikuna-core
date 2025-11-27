@@ -30,6 +30,6 @@ public interface ComiteGestionRepository extends JpaRepository<ComiteGestion, Lo
     @Query("SELECT c FROM ComiteGestion c WHERE c.fechaFinVigencia < :fecha AND c.estadoActivo = 1")
     List<ComiteGestion> findExpiredMembers(@Param("fecha") LocalDate fecha);
     
-    @Query("SELECT c FROM ComiteGestion c WHERE c.nombreCompleto LIKE %:nombre%")
+    @Query("SELECT c FROM ComiteGestion c WHERE c.nombreCompleto LIKE CONCAT('%', :nombre, '%')")
     List<ComiteGestion> findByNombreCompletoContaining(@Param("nombre") String nombre);
 }

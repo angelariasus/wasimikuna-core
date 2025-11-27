@@ -18,7 +18,7 @@ public interface AfiliadoRepository extends JpaRepository<Afiliado, Long> {
     
     List<Afiliado> findByEstado(Integer estado);
     
-    @Query("SELECT a FROM Afiliado a WHERE a.razonSocial LIKE %:razonSocial%")
+    @Query("SELECT a FROM Afiliado a WHERE a.razonSocial LIKE CONCAT('%', :razonSocial, '%')")
     List<Afiliado> findByRazonSocialContaining(@Param("razonSocial") String razonSocial);
     
     @Query("SELECT a FROM Afiliado a WHERE a.calificacionSanitaria >= :minCalificacion")

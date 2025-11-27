@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface PlatoRepository extends JpaRepository<Plato, Long> {
     
-    @Query("SELECT p FROM Plato p WHERE p.nombre LIKE %:nombre%")
+    @Query("SELECT p FROM Plato p WHERE p.nombre LIKE CONCAT('%', :nombre, '%')")
     List<Plato> findByNombreContaining(@Param("nombre") String nombre);
     
     List<Plato> findByRegionOrigen(String regionOrigen);

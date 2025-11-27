@@ -26,7 +26,7 @@ public interface EnvioRepository extends JpaRepository<Envio, Long> {
     @Query("SELECT e FROM Envio e WHERE e.placaVehiculo = :placa")
     List<Envio> findByPlacaVehiculo(@Param("placa") String placa);
     
-    @Query("SELECT e FROM Envio e WHERE e.conductorNombre LIKE %:nombre%")
+    @Query("SELECT e FROM Envio e WHERE e.conductorNombre LIKE CONCAT('%', :nombre, '%')")
     List<Envio> findByConductorNombreContaining(@Param("nombre") String nombre);
     
     @Query("SELECT e FROM Envio e WHERE e.institucion.institucionId = :institucionId AND e.estadoEnvio = :estado")

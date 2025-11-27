@@ -13,7 +13,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     
     List<Producto> findByCategoria(CategoriaProducto categoria);
     
-    @Query("SELECT p FROM Producto p WHERE p.nombre LIKE %:nombre%")
+    @Query("SELECT p FROM Producto p WHERE p.nombre LIKE CONCAT('%', :nombre, '%')")
     List<Producto> findByNombreContaining(@Param("nombre") String nombre);
     
     List<Producto> findByUnidadMedida(String unidadMedida);

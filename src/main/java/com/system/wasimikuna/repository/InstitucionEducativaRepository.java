@@ -25,7 +25,7 @@ public interface InstitucionEducativaRepository extends JpaRepository<Institucio
     
     List<InstitucionEducativa> findByEstadoActivo(Integer estadoActivo);
     
-    @Query("SELECT ie FROM InstitucionEducativa ie WHERE ie.nombre LIKE %:nombre%")
+    @Query("SELECT ie FROM InstitucionEducativa ie WHERE ie.nombre LIKE CONCAT('%', :nombre, '%')")
     List<InstitucionEducativa> findByNombreContaining(@Param("nombre") String nombre);
     
     @Query("SELECT ie FROM InstitucionEducativa ie WHERE ie.departamento = :departamento AND ie.provincia = :provincia")

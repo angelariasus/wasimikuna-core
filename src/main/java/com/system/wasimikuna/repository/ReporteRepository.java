@@ -33,27 +33,27 @@ public interface ReporteRepository extends JpaRepository<com.system.wasimikuna.m
     List<KardexDTO> getKardexEntradas();
     
     // Consulta equivalente a la vista VW_STOCK_ACTUAL
-    @Query(value = """
+    @Query("""
         SELECT new com.system.wasimikuna.dto.StockDTO(
             ie.nombre,
             p.nombre,
-            COALESCE(SUM(dr.cantidadRecibida), 0),
-            COALESCE((
+            CAST(COALESCE(SUM(dr.cantidadRecibida), 0) AS java.math.BigDecimal),
+            CAST(COALESCE((
                 SELECT SUM(pm.cantidadRaciones * rp.cantidadPorRacion)
                 FROM ProgramacionMenu pm
                 JOIN RecetaProducto rp ON pm.plato.platoId = rp.plato.platoId
                 WHERE pm.institucion.institucionId = ie.institucionId
                 AND rp.producto.productoId = p.productoId
                 AND pm.estadoPreparacion = 'SERVIDO'
-            ), 0),
-            COALESCE(SUM(dr.cantidadRecibida), 0) - COALESCE((
+            ), 0) AS java.math.BigDecimal),
+            CAST((COALESCE(SUM(dr.cantidadRecibida), 0) - COALESCE((
                 SELECT SUM(pm.cantidadRaciones * rp.cantidadPorRacion)
                 FROM ProgramacionMenu pm
                 JOIN RecetaProducto rp ON pm.plato.platoId = rp.plato.platoId
                 WHERE pm.institucion.institucionId = ie.institucionId
                 AND rp.producto.productoId = p.productoId
                 AND pm.estadoPreparacion = 'SERVIDO'
-            ), 0)
+            ), 0)) AS java.math.BigDecimal)
         )
         FROM DetalleRecepcion dr
         JOIN dr.recepcion r
@@ -70,9 +70,9 @@ public interface ReporteRepository extends JpaRepository<com.system.wasimikuna.m
         SELECT new com.system.wasimikuna.dto.StockDTO(
             ie.nombre,
             p.nombre,
-            COALESCE(SUM(dr.cantidadRecibida), 0),
-            0,
-            COALESCE(SUM(dr.cantidadRecibida), 0)
+            CAST(COALESCE(SUM(dr.cantidadRecibida), 0) AS java.math.BigDecimal),
+            CAST(0 AS java.math.BigDecimal),
+            CAST(COALESCE(SUM(dr.cantidadRecibida), 0) AS java.math.BigDecimal)
         )
         FROM DetalleRecepcion dr
         JOIN dr.recepcion r
