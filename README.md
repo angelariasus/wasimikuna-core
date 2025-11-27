@@ -103,13 +103,6 @@ database/
 ├── schema.sql                       # Definición de esquema
 ├── seed.sql                        # Datos de prueba
 └── tablespaces.sql                 # Configuración de tablespaces
-
-frontend/                           # Aplicación cliente (futuro)
-
-private/
-├── datos.sql                       # Datos adicionales
-├── esquemas.sql                    # Esquemas alternativos
-└── seed_clean.sql                  # Datos limpios de prueba
 ```
 
 ---
